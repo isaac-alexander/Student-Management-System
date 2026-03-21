@@ -1,0 +1,29 @@
+OBJECTIVE
+Build a simple Student Management System web application using Spring Boot, Spring MVC, Thymeleaf, Spring Data JPA (Hibernate), MySQL
+
+
+Tools and technologies used
+Latest Java
+Spring Boot
+Spring MVC
+Spring Data JPA (Hibernate)
+MySQL
+Thymeleaf
+Eclipse STS
+
+Steps needed for sql
+1. create database in mysql server/ mysql workbench
+
+2. Go to src/main/resources/application.properties and configure mysql details
+spring.datasource.url=jdbc:mysql://localhost:3306/sms?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+spring.datasource.username=root
+spring.datasource.password=###
+
+3. Configure #Hibernate
+#Hibernate
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+
+#Hibernate auto ddl
+spring.jpa.hibernate.ddl-auto=update
+
+logging.level.org.hibernate.SQL=DEBUG

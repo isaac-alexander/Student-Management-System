@@ -1,0 +1,38 @@
+Spring MVC is a web framework inside the Spring Framework used to build Java web applications.
+It follows the Model-View-Controller architecture,  which separates an application into 3 main parts to make the code easier to manage and maintain.
+
+MVC stands for
+Model - represents the data and business logic of the application
+View - the UI (User Interface) that the user sees
+Controller - The controller handles user requests and decides what to do with them
+
+
+Spring MVC Terms
+- The DispatcherServlet acts as a front controller like it provides a single entry point for a client request to Spring MVC web application and forwards request to Spring MVC controller for processing.
+
+- The DispatcherServlet is an actual Servlet ( it inherits from the HTTPServlet base class).
+
+- handler method - A handler method is a method in Java class that handles incoming HTTP requests.
+
+- Controller class - The Java class that contains these handler methods is called a controller class.
+
+ Components in Spring MVC Architecture
+ . DispatcherServlet (Front controller)
+ . Handler Mapping
+ . ViewResolver - Responsible for resolving view location
+ . View Engine - Responsible for binding a model and view together, and it will produce a html response
+
+ SpringBoot Auto Configuration for Spring MVC
+. Spring Boot automatically configures a spring application based on dependencies present or not present in the classpath as a jar, beans, properties, etc.
+
+. A typical MVC database driven Spring MVC application requires a lot of configuration such as Dispatcher Servlet, a View Resolver, Jackson, Data Source, Transaction Manager, among many others.
+
+. Spring Boot autoconfigures a DispatcherServlet if Spring MVC jar is on the classpath
+
+. Autoconfigures the Jackson if Jackson jar is on the classpath
+
+. Autoconfigures the Data Source if Hibernate jar is on the classpath
+
+. Spring Boot provides the spring-boot-starter-web library for developing web applications using Spring MVC
+
+. THhe Spring Boot autoconfiguration registers and configures the DispatcherServlet automatically. Therefore, we don't need to register the DispatcherServlet manually
