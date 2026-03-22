@@ -1,12 +1,12 @@
-package service.impl;
+package com.alex.student_management_system.service.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import entity.Student;
-import repository.StudentRepository;
-import service.StudentService;
+import com.alex.student_management_system.entity.Student;
+import com.alex.student_management_system.repository.StudentRepository;
+import com.alex.student_management_system.service.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService {
