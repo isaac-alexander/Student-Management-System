@@ -36,3 +36,14 @@ Spring MVC Terms
 . Spring Boot provides the spring-boot-starter-web library for developing web applications using Spring MVC
 
 . THhe Spring Boot autoconfiguration registers and configures the DispatcherServlet automatically. Therefore, we don't need to register the DispatcherServlet manually
+
+CommandLineRunner - Executes when we run our application
+
+th: each = "student: ${students}" - to loop
+th:text = "${student.firstName}" - to display text
+<html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+
+th:href = "@{/students/new}" - adding links/anchor tags <a></a>
+th:action="@{/students}" - attribute to define action
+th:object = "${student}" - to access student object
+th:field = "firstName" - binds input text to the post name
