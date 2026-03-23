@@ -44,6 +44,12 @@ th:text = "${student.firstName}" - to display text
 <html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
 
 th:href = "@{/students/new}" - adding links/anchor tags <a></a>
+
 th:action="@{/students}" - attribute to define action
+
 th:object = "${student}" - to access student object
+
 th:field = "firstName" - binds input text to the post name
+
+th:href = "@{/students/edit/{id}(id=${student.id})}" - to get id from student {id}(id=${student.id})}
+
