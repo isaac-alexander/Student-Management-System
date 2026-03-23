@@ -10,6 +10,23 @@ Spring Data JPA (Hibernate)
 MySQL
 Thymeleaf
 Eclipse STS
+Bootstrap
+
+Start up spring project
+1. Go to https://start.spring.io/
+
+2. Name the group, artifact and package name
+
+3. Select Java version
+
+4. Add all necessary dependencies (Spring Boot Dev Tools, Spring Data JPA, MySQL Driver, Thymeleaf, Spring Web etc...)
+
+5. Click on Generate
+
+6. Extract file
+
+7. Open folder and Open pom.xml
+
 
 Steps needed for sql
 1. create database in mysql server/ mysql workbench
