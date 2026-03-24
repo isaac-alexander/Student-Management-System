@@ -28,7 +28,7 @@ public class StudentController {
 
     @GetMapping("/students/new")
     public String createStudentForm(Model model) {
-       // create student object to hold student form data
+        // create student object to hold student form data
         Student student = new Student();
         model.addAttribute("student", student);
         return "create_student";
@@ -47,7 +47,7 @@ public class StudentController {
     }
 
     @PostMapping("/students/{id}")
-    public String updateStudent(@PathVariable Long id, @ModelAttribute("student") Student student, Model model ) {
+    public String updateStudent(@PathVariable Long id, @ModelAttribute("student") Student student, Model model) {
         // get student from database by id
         Student existingStudent = studentService.getStudentById(id);
         existingStudent.setId(id);
