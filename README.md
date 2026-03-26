@@ -19,40 +19,7 @@ A simple Student Management System web application built with **Spring Boot**, *
 - Update student or teacher information
 - Delete student or teacher records
 
-## Setup Instructions
-
-- Go to `https://start.spring.io/`
-- Set your **Group**, **Artifact**, and **Package Name**
-- Select Java version
-- Add dependencies:
-**Spring Boot Dev Tools**, **Spring Data JPA**, **MySQL Driver**, **Thymeleaf**, **Spring Web**
-- Click Generate, extract the project, and open it in your **IDE**
-
-- Create the following packages:
-**controller**
-**service and service.impl**
-**repository**
-**entity**
-
-## Database Configuration
-
-- Create a database in MySQL (or MySQL Workbench):
-CREATE DATABASE sms;
-
-- Configure src/main/resources/application.properties:
-
-# MySQL Configuration
-- spring.datasource.url=jdbc:mysql://localhost:3306/sms?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-- spring.datasource.username=root
-- spring.datasource.password=YOUR_PASSWORD
-
-# Hibernate Configuration
-- spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
-- spring.jpa.hibernate.ddl-auto=update
-- logging.level.org.hibernate.SQL=DEBUG
-
-
-## Cloning from GitHub
+## Setup Instructions / ## Cloning from GitHub
 
 you can clone it to your local machine:
 
@@ -63,8 +30,24 @@ you can clone it to your local machine:
 - Navigate into the cloned folder:
 - cd <project-folder-name>
 - Open the project in your IDE  IntelliJ
-- Configure the database connection in application.properties (see Database Configuration
-)
+- Configure the database connection in application.properties (see Database Configuration)
+
+## Database Configuration
+- Create a database in MySQL (or MySQL Workbench):
+  CREATE DATABASE: create database name;
+- Configure src/main/resources/application.properties:
+
+# MySQL Configuration
+- spring.datasource.url=jdbc:mysql://localhost:3306/"database name"?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+- spring.datasource.username=root
+- spring.datasource.password=YOUR_PASSWORD
+
+# Hibernate Configuration
+- spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+- spring.jpa.hibernate.ddl-auto=update
+- logging.level.org.hibernate.SQL=DEBUG
+
+
 - Run the project
 
 `http://localhost:8080/`
