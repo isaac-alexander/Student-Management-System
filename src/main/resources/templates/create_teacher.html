@@ -73,6 +73,10 @@
 
                     <div class="form-group">
                         <label> Teacher Email</label>
+                        <div th:if="${error}"
+                             class="alert alert-danger">
+                            <p th:text="${error}"></p>
+                        </div>
                         <input
                                 type="email"
                                 name="email"
