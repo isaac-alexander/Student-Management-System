@@ -1,5 +1,6 @@
 package com.alex.student_management_system.service.impl;
 
+import com.alex.student_management_system.entity.Student;
 import com.alex.student_management_system.entity.Teacher;
 import com.alex.student_management_system.repository.TeacherRepository;
 import com.alex.student_management_system.service.TeacherService;
@@ -22,10 +23,20 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherRepository.findAll(); // returns list of teacher
     }
 
+
+    @Override
+    public boolean emailExists(String email) {
+        return teacherRepository.existsByEmail(email);
+    }
+
     @Override
     public Teacher saveTeacher(Teacher teacher) {
+        if (teacherRepository.existsByEmail(teacher.getEmail())) {
+            throw new RuntimeException("Email already exists!");
+        }
         return teacherRepository.save(teacher);
     }
+
 
     @Override
     public Teacher getTeacherById(Long id) {
