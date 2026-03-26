@@ -7,6 +7,8 @@ import java.util.List;
 public interface StudentService {
     List<Student> getAllStudents();
 
+    boolean emailExists(String email);
+
     Student saveStudent(Student student);
 
     Student getStudentById(Long id);
