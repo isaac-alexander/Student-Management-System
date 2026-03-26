@@ -22,7 +22,7 @@ public class StudentController {
     // handler method to handle list student and return mode and view
     @GetMapping("/students")
     public String listStudents(Model model) {
-        model.addAttribute("students", studentService.getAllStudents());
+        model.addAttribute("students", studentService.getAllStudents());  // uses the attributeName "students" to connects the controller to the html
         return "students";
     }
 
@@ -30,19 +30,23 @@ public class StudentController {
     public String createStudentForm(Model model) {
         // create student object to hold student form data
         Student student = new Student();
-        model.addAttribute("student", student);
+        model.addAttribute("student", student);  // uses the attributeName "student" to connects the controller to the html
         return "create_student";
     }
 
     @PostMapping("/students")
-    public String saveStudent(@ModelAttribute("student") Student student) {
+    public String saveStudent(@ModelAttribute("student") Student student, Model model) {
+        if (studentService.emailExists(student.getEmail())) {
+            model.addAttribute("error", "Email already exists!");  // uses the attributeName "error" to connects the controller to the html
+            return "create_student";
+        }
         studentService.saveStudent(student);
         return "redirect:/students";
     }
 
     @GetMapping("/students/edit/{id}")
     public String editStudentForm(@PathVariable Long id, Model model) {
-        model.addAttribute("student", studentService.getStudentById(id));
+        model.addAttribute("student", studentService.getStudentById(id));  // uses the attributeName "student" to connects the controller to the html
         return "edit_student";
     }
 
