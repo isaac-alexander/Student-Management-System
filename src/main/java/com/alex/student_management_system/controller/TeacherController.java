@@ -1,5 +1,6 @@
 package com.alex.student_management_system.controller;
 
+import com.alex.student_management_system.entity.Student;
 import com.alex.student_management_system.entity.Teacher;
 import com.alex.student_management_system.service.TeacherService;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class TeacherController {
 
     @GetMapping("/teachers")
     public String listTeacher(Model model) {
-        model.addAttribute("teachers", teacherService.getAllTeachers());
+        model.addAttribute("teachers", teacherService.getAllTeachers());  // uses the attributeName "teachers" to connects the controller to the html
         return "teachers";
     }
 
@@ -31,19 +32,23 @@ public class TeacherController {
     public String createTeacherForm(Model model) {
         // create teacher object to hold teacher form data
         Teacher teacher = new Teacher();
-        model.addAttribute("teacher", teacher);
+        model.addAttribute("teacher", teacher);  // uses the attributeName "teacher" to connects the controller to the html
         return "create_teacher"; // view/html
     }
 
     @PostMapping("/teachers")
-    public String saveTeacher(@ModelAttribute("teacher") Teacher teacher) {
+    public String saveTeacher(@ModelAttribute("teacher") Teacher teacher, Model model) {
+        if (teacherService.emailExists(teacher.getEmail())) {
+            model.addAttribute("error", "Email already exists!");  // uses the attributeName "error" to connects the controller to the html
+            return "create_teacher";
+        }
         teacherService.saveTeacher(teacher);
         return "redirect:/teachers";
     }
 
     @GetMapping("/teachers/edit/{id}")
     public String editTeacherForm(@PathVariable Long id, Model model) {
-        model.addAttribute("teacher", teacherService.getTeacherById(id));
+        model.addAttribute("teacher", teacherService.getTeacherById(id));  // uses the attributeName "teacher" to connects the controller to the html
         return "edit_teacher";
     }
 
